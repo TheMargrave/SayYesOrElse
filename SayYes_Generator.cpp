@@ -20,10 +20,10 @@ int main() {
     cout << "Enter the recipient's name: ";
     getline(cin, name);
 
-    // Read template.html
-    ifstream templateFile("template.html");
+    // Read index.html instead of template.html
+    ifstream templateFile("index.html");
     if (!templateFile.is_open()) {
-        cerr << "Error: Could not open template.html" << endl;
+        cerr << "Error: Could not open index.html" << endl;
         return 1;
     }
 
