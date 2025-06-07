@@ -14,13 +14,11 @@ void replaceAll(string &data, const string &from, const string &to) {
 }
 
 int main() {
-    string name, message;
+    string name;
 
-    // Get user input
+    // Get user input for name only
     cout << "Enter the recipient's name: ";
     getline(cin, name);
-    cout << "Enter your custom message: ";
-    getline(cin, message);
 
     // Read template.html
     ifstream templateFile("template.html");
@@ -32,9 +30,8 @@ int main() {
     string htmlContent((istreambuf_iterator<char>(templateFile)), istreambuf_iterator<char>());
     templateFile.close();
 
-    // Replace placeholders
+    // Replace only the {{name}} placeholder
     replaceAll(htmlContent, "{{name}}", name);
-    replaceAll(htmlContent, "{{message}}", message);
 
     // Write to output.html
     ofstream outputFile("output.html");
