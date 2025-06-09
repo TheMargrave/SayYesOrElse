@@ -14,13 +14,12 @@ void replaceAll(string &data, const string &from, const string &to) {
 }
 
 int main() {
-    string name;
+    string question;
 
     // Get user input for name only
-    cout << "Enter the recipient's name: ";
+    cout << "Enter the question for the recipient name: ";
     getline(cin, name);
 
-    // Read index.html instead of template.html
     ifstream templateFile("index.html");
     if (!templateFile.is_open()) {
         cerr << "Error: Could not open index.html" << endl;
@@ -30,8 +29,7 @@ int main() {
     string htmlContent((istreambuf_iterator<char>(templateFile)), istreambuf_iterator<char>());
     templateFile.close();
 
-    // Replace only the {{name}} placeholder
-    replaceAll(htmlContent, "{{name}}", name);
+    replaceAll(htmlContent, "{{question}}", question);
 
     // Write to output.html
     ofstream outputFile("output.html");
