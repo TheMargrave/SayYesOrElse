@@ -16,9 +16,9 @@ void replaceAll(string &data, const string &from, const string &to) {
 int main() {
     string question;
 
-    // Get user input for name only
-    cout << "Enter the question for the recipient name: ";
-    getline(cin, name);
+    // Get user input for question
+    cout << "Enter the question for the recipient: ";
+    getline(cin, question);
 
     ifstream templateFile("index.html");
     if (!templateFile.is_open()) {
